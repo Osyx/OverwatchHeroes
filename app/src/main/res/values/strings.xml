@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Overwatch Heroes</string>
+    <string name="txtbox_select_a_cat">Select a category:</string>
+    <string name="button_all">All</string>
+    <string name="button_offense">Offense</string>
+    <string name="button_defense">Defense</string>
+    <string name="button_tank">Tank</string>
+    <string name="button_support">Support</string>
+    <string name="title_activity_display_hero_category">%1$s</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">%1$s</string>
+</resources>
