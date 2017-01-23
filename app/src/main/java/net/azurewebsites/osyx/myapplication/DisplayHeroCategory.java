@@ -205,7 +205,7 @@ public class DisplayHeroCategory extends AppCompatActivity {
             if (HERO_CATEGORY.equals("Support")) {
                 switch (position) {
                     case 0:
-                        return "Ana";
+                        return "ana_portrait";
                     case 1:
                         return "Lucio";
                     case 2:
@@ -255,7 +255,7 @@ public class DisplayHeroCategory extends AppCompatActivity {
                 case 17:
                     return "Zarya";
                 case 18:
-                    return "Ana";
+                    return "ana_portrait";
                 case 19:
                     return "Lucio";
                 case 20:
