@@ -19,24 +19,10 @@ import android.widget.TextView;
 
 public class DisplayHeroCategory extends AppCompatActivity {
 
-    public static String CURRENT_PAGE_TITLE = "Nope!";
-    public static String PREVIOUS_PAGE_TITLE = "Nope!";
-    public static int REPEATED_HERO = 0;
-    public String HERO_CATEGORY = "All";
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
+    private static String CURRENT_PAGE_TITLE = "Nope!";
+    private static String PREVIOUS_PAGE_TITLE = "Nope!";
+    private static int REPEATED_HERO = 0;
+    private String HERO_CATEGORY = "All";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +37,21 @@ public class DisplayHeroCategory extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        /*
+      The {@link android.support.v4.view.PagerAdapter} that will provide
+      fragments for each of the sections. We use a
+      {@link FragmentPagerAdapter} derivative, which will keep every
+      loaded fragment in memory. If this becomes too memory intensive, it
+      may be best to switch to a
+      {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        /*
+      The {@link ViewPager} that will host the section contents.
+     */
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
@@ -357,8 +354,5 @@ public class DisplayHeroCategory extends AppCompatActivity {
             return "No hero";
         }
 
-        public void setTitle(int position) {
-            CURRENT_PAGE_TITLE = getPageTitle(position).toString();
-        }
     }
 }
