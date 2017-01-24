@@ -20,6 +20,8 @@ import android.widget.TextView;
 public class DisplayHeroCategory extends AppCompatActivity {
 
     public static String CURRENT_PAGE_TITLE = "Nope!";
+    public static String PREVIOUS_PAGE_TITLE = "Nope!";
+    public static int REPEATED_HERO = 0;
     public String HERO_CATEGORY = "All";
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -111,11 +113,93 @@ public class DisplayHeroCategory extends AppCompatActivity {
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.imgHeroSelect);
             Log.d("onCreateView ", " " + CURRENT_PAGE_TITLE);
-            textView.setText(getString(R.string.section_format, CURRENT_PAGE_TITLE));
-            if (CURRENT_PAGE_TITLE.equals("Genji"))
-                imageView.setImageResource(R.drawable.genji);
+            if (REPEATED_HERO == 0) {
+                textView.setText(getString(R.string.section_format, PREVIOUS_PAGE_TITLE));
+                changeCharacterImage(PREVIOUS_PAGE_TITLE, imageView);
+                REPEATED_HERO++;
+            } else {
+                textView.setText(getString(R.string.section_format, CURRENT_PAGE_TITLE));
+                changeCharacterImage(CURRENT_PAGE_TITLE, imageView);
+            }
 
             return rootView;
+        }
+
+        public void changeCharacterImage(String hero, ImageView imageView) {
+            switch (hero) {
+                case "Genji":
+                    imageView.setImageResource(R.drawable.genji_portrait);
+                    break;
+                case "McCree":
+                    imageView.setImageResource(R.drawable.mccree_portrait);
+                    break;
+                case "Pharah":
+                    imageView.setImageResource(R.drawable.pharah_portrait);
+                    break;
+                case "Reaper":
+                    imageView.setImageResource(R.drawable.reaper_portrait);
+                    break;
+                case "Soldier:76":
+                    imageView.setImageResource(R.drawable.soldier76_portrait);
+                    break;
+                case "Sombra":
+                    imageView.setImageResource(R.drawable.sombra_portrait);
+                    break;
+                case "Tracer":
+                    imageView.setImageResource(R.drawable.tracer_portrait);
+                    break;
+                case "Bastion":
+                    imageView.setImageResource(R.drawable.bastion_portrait);
+                    break;
+                case "Hanzo":
+                    imageView.setImageResource(R.drawable.hanzo_portrait);
+                    break;
+                case "Junkrat":
+                    imageView.setImageResource(R.drawable.junkrat_portrait);
+                    break;
+                case "Mei":
+                    imageView.setImageResource(R.drawable.mei_portrait);
+                    break;
+                case "Torbjörn":
+                    imageView.setImageResource(R.drawable.torbjorn_portrait);
+                    break;
+                case "Widowmaker":
+                    imageView.setImageResource(R.drawable.widowmaker_portrait);
+                    break;
+                case "D.Va":
+                    imageView.setImageResource(R.drawable.dva_portrait);
+                    break;
+                case "Reinhardt":
+                    imageView.setImageResource(R.drawable.reinhardt_portrait);
+                    break;
+                case "Roadhog":
+                    imageView.setImageResource(R.drawable.roadhog_portrait);
+                    break;
+                case "Winston":
+                    imageView.setImageResource(R.drawable.winston_portrait);
+                    break;
+                case "Zarya":
+                    imageView.setImageResource(R.drawable.zarya_portrait);
+                    break;
+                case "Ana":
+                    imageView.setImageResource(R.drawable.ana_portrait);
+                    break;
+                case "Lucio":
+                    imageView.setImageResource(R.drawable.lucio_portrait);
+                    break;
+                case "Mercy":
+                    imageView.setImageResource(R.drawable.mercy_portrait);
+                    break;
+                case "Symmetra":
+                    imageView.setImageResource(R.drawable.symmetra_portrait);
+                    break;
+                case "Zenyatta":
+                    imageView.setImageResource(R.drawable.zenyatta_portrait);
+                    break;
+                default:
+                    imageView.setImageResource(R.drawable.zenyatta_portrait);
+            }
+
         }
     }
 
@@ -133,7 +217,12 @@ public class DisplayHeroCategory extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            setTitle(position - 1);
+            if (position == 0) {
+                PREVIOUS_PAGE_TITLE = getPageTitle(position).toString();
+                REPEATED_HERO = 0;
+            } else {
+                CURRENT_PAGE_TITLE = getPageTitle(position).toString();
+            }
             Log.d("position", " " + position);
             return PlaceholderFragment.newInstance(position + 1);
         }
@@ -205,7 +294,7 @@ public class DisplayHeroCategory extends AppCompatActivity {
             if (HERO_CATEGORY.equals("Support")) {
                 switch (position) {
                     case 0:
-                        return "ana_portrait";
+                        return "Ana";
                     case 1:
                         return "Lucio";
                     case 2:
@@ -255,7 +344,7 @@ public class DisplayHeroCategory extends AppCompatActivity {
                 case 17:
                     return "Zarya";
                 case 18:
-                    return "ana_portrait";
+                    return "Ana";
                 case 19:
                     return "Lucio";
                 case 20:
